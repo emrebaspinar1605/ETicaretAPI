@@ -1,21 +1,10 @@
 ﻿using ETicaretAPI.Application.Repositories;
-using ETicaretAPI.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace ETicaretAPI.Application.Features.Queries.ProductImageFile.GetProductImages
 {
-    public class GetProductImagesQueryRequest : IRequest<List<GetProductImagesQueryResponse>>
-    {
-        public string Id { get; set; }
-    }
     public class GetProductImagesQueryHandle : IRequestHandler<GetProductImagesQueryRequest, List<GetProductImagesQueryResponse>>
     {
         readonly IProductReadRepository _read;
@@ -40,11 +29,5 @@ namespace ETicaretAPI.Application.Features.Queries.ProductImageFile.GetProductIm
             }).ToList();
 
         }
-    }
-    public class GetProductImagesQueryResponse
-    {
-        public string Path { get; set; }
-        public string FileName { get; set; }
-        public Guid Id { get; set; }
     }
 }
